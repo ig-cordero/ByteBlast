@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsotchb7sxvsp"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_ctmwi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_baggc"]
+radius = 4.0
+height = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5hv"]
+radius = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xl2cm"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_ctmwi")
+
+[node name="pata" type="Area2D" parent="."]
+position = Vector2(6, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pata"]
+rotation = -0.303014
+shape = SubResource("CapsuleShape2D_baggc")
+debug_color = Color(0.443137, 0.458824, 0.988235, 0.419608)
+
+[node name="puno" type="Area2D" parent="."]
+position = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="puno"]
+position = Vector2(10, -6)
+shape = SubResource("CircleShape2D_yf5hv")
+debug_color = Color(0.913725, 0, 0.72549, 0.419608)
+
+[node name="cuerpo" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_xl2cm")
+
+[connection signal="body_entered" from="pata" to="." method="_on_pata_body_entered"]
+[connection signal="body_entered" from="puno" to="." method="_on_puno_body_entered"]

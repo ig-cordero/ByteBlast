@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8dt3lfqp01uq"]
+
+[ext_resource type="Script" path="res://jugadores/player1/global.gd" id="1_mjltc"]
+[ext_resource type="PackedScene" uid="uid://bi2ug1jqr3j5s" path="res://poder.tscn" id="2_qnafi"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_mjltc")
+poder = ExtResource("2_qnafi")
+
+[node name="TiempoCombo" type="Timer" parent="."]
+
+[connection signal="timeout" from="TiempoCombo" to="." method="_on_tiempo_combo_timeout"]
