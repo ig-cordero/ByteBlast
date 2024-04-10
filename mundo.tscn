@@ -1,56 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1ik6l312bscd"]
+[gd_scene load_steps=4 format=3 uid="uid://r3eulfek182v"]
 
-[ext_resource type="Script" path="res://mundo.gd" id="1_ifd5w"]
-[ext_resource type="PackedScene" uid="uid://bsotchb7sxvsp" path="res://jugadores/player1/player1.tscn" id="1_vtqm7"]
-[ext_resource type="PackedScene" uid="uid://b3gwkut3cri01" path="res://jugadores/Saco/saco.tscn" id="2_0cvxi"]
-[ext_resource type="PackedScene" uid="uid://bi2ug1jqr3j5s" path="res://poder.tscn" id="3_peo0d"]
-[ext_resource type="PackedScene" uid="uid://b8dt3lfqp01uq" path="res://jugadores/player1/global.tscn" id="4_64wgx"]
+[ext_resource type="PackedScene" uid="uid://6f0njq5xvea3" path="res://spawner.tscn" id="1_1hlsx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fm335"]
-size = Vector2(1189, 151)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2li7a"]
+size = Vector2(39, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sgq0e"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(-1, -38)
-script = ExtResource("1_ifd5w")
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_vtqm7")]
-position = Vector2(86, 370)
-poder = ExtResource("3_peo0d")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-163, 592)
+scale = Vector2(34.769, 6.31298)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 39.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(589, 587)
-shape = SubResource("RectangleShape2D_fm335")
+position = Vector2(20.5, 19)
+shape = SubResource("RectangleShape2D_2li7a")
 
-[node name="Saco" parent="." instance=ExtResource("2_0cvxi")]
-position = Vector2(1071, 506)
+[node name="spawner" parent="." instance=ExtResource("1_1hlsx")]
+position = Vector2(131, 495)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 553.0
-offset_top = 190.0
-offset_right = 593.0
-offset_bottom = 213.0
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Node" parent="." instance=ExtResource("4_64wgx")]
-
-[connection signal="abajo" from="CharacterBody2D" to="Node" method="_on_character_body_2d_abajo"]
-[connection signal="adelante" from="CharacterBody2D" to="Node" method="_on_character_body_2d_adelante"]
-[connection signal="arriba" from="CharacterBody2D" to="." method="_on_character_body_2d_arriba"]
-[connection signal="arriba" from="CharacterBody2D" to="Node" method="_on_character_body_2d_arriba"]
-[connection signal="atras" from="CharacterBody2D" to="Node" method="_on_character_body_2d_atras"]
-[connection signal="patada" from="CharacterBody2D" to="Node" method="_on_character_body_2d_patada"]
-[connection signal="patadaCuerpo" from="CharacterBody2D" to="." method="_on_character_body_2d_patada_cuerpo"]
-[connection signal="punetazo" from="CharacterBody2D" to="." method="_on_character_body_2d_punetazo"]
-[connection signal="punetazo" from="CharacterBody2D" to="Node" method="_on_character_body_2d_punetazo"]
-[connection signal="punetazoCuerpo" from="CharacterBody2D" to="." method="_on_character_body_2d_punetazo_cuerpo"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="poder1" from="Node" to="." method="_on_node_poder_1"]
-[connection signal="poder1" from="Node" to="CharacterBody2D" method="_on_node_poder_1"]
-[connection signal="poder2" from="Node" to="." method="_on_node_poder_2"]
-
-[editable path="CharacterBody2D"]
-[editable path="Saco"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(536, 129)
+shape = SubResource("CircleShape2D_sgq0e")
+debug_color = Color(0.952941, 0, 0.556863, 0.419608)

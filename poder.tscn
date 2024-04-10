@@ -1,28 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi2ug1jqr3j5s"]
+[gd_scene load_steps=4 format=3 uid="uid://sso8laeahhy7"]
 
-[ext_resource type="Script" path="res://poder.gd" id="1_75ef8"]
+[ext_resource type="Script" path="res://poder.gd" id="1_upt3g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a1hhh"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddx8x"]
+radius = 12.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_36c0p"]
-radius = 11.0454
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3t1b"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
-script = ExtResource("1_75ef8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_a1hhh")
+script = ExtResource("1_upt3g")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_36c0p")
-debug_color = Color(0.956863, 0, 0.545098, 0.419608)
+shape = SubResource("CircleShape2D_ddx8x")
+debug_color = Color(0.992157, 0, 0.270588, 0.419608)
 
-[node name="Label" type="Label" parent="."]
-offset_left = -13.0
-offset_top = -27.0
-offset_right = 27.0
-offset_bottom = -4.0
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m3t1b")

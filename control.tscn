@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv0ugb75lvl73"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_cmmj8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cmmj8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="alan" type="Button" parent="Camera2D/VBoxContainer"]
+layout_mode = 2
+text = "Alan"
+
+[node name="danery" type="Button" parent="Camera2D/VBoxContainer"]
+layout_mode = 2
+text = "danery"
+
+[connection signal="button_down" from="Camera2D/VBoxContainer/alan" to="." method="_on_alan_button_down"]
+[connection signal="button_down" from="Camera2D/VBoxContainer/danery" to="." method="_on_danery_button_down"]

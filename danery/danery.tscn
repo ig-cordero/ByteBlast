@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://ox1fk0lhmusk"]
+
+[ext_resource type="PackedScene" uid="uid://dfuldxaiid1ji" path="res://Player/Player.tscn" id="1_k2l0c"]
+[ext_resource type="Script" path="res://danery/Controlador.gd" id="1_paixj"]
+
+[node name="Danery" type="Node2D"]
+position = Vector2(2, 16)
+
+[node name="Controlador" type="Node" parent="."]
+script = ExtResource("1_paixj")
+
+[node name="TiempoCombo" type="Timer" parent="."]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_k2l0c")]
+position = Vector2(-2, -17)
+
+[node name="Label" type="Label" parent="CharacterBody2D"]
+offset_left = -14.0
+offset_top = -62.0
+offset_right = 89.0
+offset_bottom = -39.0
+text = "soy el danery"
+
+[connection signal="controladoractivoplayer1" from="Controlador" to="CharacterBody2D" method="_on_controlador_controladoractivoplayer_1"]
+[connection signal="controladoractivoplayer2" from="Controlador" to="CharacterBody2D" method="_on_controlador_controladoractivoplayer_2"]
+[connection signal="abajo" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_abajo"]
+[connection signal="adelante" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_adelante"]
+[connection signal="arriba" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_arriba"]
+[connection signal="atras" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_atras"]
+[connection signal="patada" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_patada"]
+[connection signal="patadaCuerpo" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_patada_cuerpo"]
+[connection signal="punetazo" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_punetazo"]
+[connection signal="punetazoCuerpo" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_punetazo_cuerpo"]

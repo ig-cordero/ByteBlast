@@ -1,5 +1,10 @@
-extends StaticBody2D
-var velocidad = 100
+extends Node
+
+var index_player1 :int
+var index_player2 :int
+
+var player1:int 
+var player2:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,5 +13,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_position.x += velocidad * delta
 	pass

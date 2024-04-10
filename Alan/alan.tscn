@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://btekq55m5ecwm"]
+
+[ext_resource type="PackedScene" uid="uid://dfuldxaiid1ji" path="res://Player/Player.tscn" id="1_gye1t"]
+[ext_resource type="Script" path="res://Alan/Controlador.gd" id="1_qv1w3"]
+[ext_resource type="PackedScene" uid="uid://sso8laeahhy7" path="res://Poder.tscn" id="2_g1q36"]
+
+[node name="Alan" type="Node2D"]
+
+[node name="Controlador" type="Node" parent="."]
+script = ExtResource("1_qv1w3")
+Poder = ExtResource("2_g1q36")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_gye1t")]
+position = Vector2(0, 1)
+
+[node name="Label" type="Label" parent="CharacterBody2D"]
+offset_left = -23.0
+offset_top = -49.0
+offset_right = 59.0
+offset_bottom = -26.0
+text = "soy el alan"
+
+[node name="TiempoCombo" type="Timer" parent="."]
+
+[connection signal="controladoractivoplayer1" from="Controlador" to="CharacterBody2D" method="_on_controlador_controladoractivoplayer_1"]
+[connection signal="controladoractivoplayer2" from="Controlador" to="CharacterBody2D" method="_on_controlador_controladoractivoplayer_2"]
+[connection signal="abajo" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_abajo"]
+[connection signal="adelante" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_adelante"]
+[connection signal="arriba" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_arriba"]
+[connection signal="atras" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_atras"]
+[connection signal="patada" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_patada"]
+[connection signal="patadaCuerpo" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_patada_cuerpo"]
+[connection signal="punetazo" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_punetazo"]
+[connection signal="punetazoCuerpo" from="CharacterBody2D" to="Controlador" method="_on_character_body_2d_punetazo_cuerpo"]
+[connection signal="timeout" from="TiempoCombo" to="Controlador" method="_on_tiempo_combo_timeout"]
